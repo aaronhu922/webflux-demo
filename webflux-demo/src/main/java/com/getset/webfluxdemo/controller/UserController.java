@@ -16,8 +16,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("")
-    public Mono<User> save(User user) {
+    @PostMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Mono<User> save(@RequestBody User user) {
         return this.userService.save(user);
     }
 

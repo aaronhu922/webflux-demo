@@ -1,15 +1,17 @@
 package com.getset.webfluxdemo;
 
-import com.getset.webfluxdemo.model.MyEvent;
-import com.getset.webfluxdemo.model.User;
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
 import org.junit.Test;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
+
+import com.getset.webfluxdemo.model.MyEvent;
+import com.getset.webfluxdemo.model.User;
+
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class SimpleTest {
     /**
@@ -64,7 +66,7 @@ public class SimpleTest {
     @Test
     public void webClientTest4() {
         Flux<MyEvent> eventFlux = Flux.interval(Duration.ofSeconds(1))
-                .map(l -> new MyEvent(System.currentTimeMillis(), "message-" + l)).take(5);
+                .map(l -> new MyEvent(String.valueOf(System.currentTimeMillis()), "message-" + l)).take(5);
         WebClient webClient = WebClient.create("http://localhost:8080");
         webClient
                 .post().uri("/events")

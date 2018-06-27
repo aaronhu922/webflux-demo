@@ -1,26 +1,30 @@
 package com.getset.webfluxdemo;
 
+import java.util.Objects;
+import java.util.UUID;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.data.mongodb.core.CollectionOptions;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.stereotype.Component;
+
 import com.getset.webfluxdemo.model.DockerEvent;
 import com.getset.webfluxdemo.repository.DockerEventMongoRepository;
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.model.Event;
 import com.github.dockerjava.core.DockerClientBuilder;
 import com.github.dockerjava.core.command.EventsResultCallback;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.data.mongodb.core.CollectionOptions;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
-import org.springframework.stereotype.Component;
+
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.FluxSink;
 
-import java.util.Objects;
-import java.util.UUID;
 
-@Slf4j
 @Component
 public class DockerEventsCollector implements CommandLineRunner {
+	private final Logger log = LoggerFactory.getLogger(getClass());
+	
 
     private DockerEventMongoRepository dockerEventMongoRepository;
     private MongoTemplate mongo;

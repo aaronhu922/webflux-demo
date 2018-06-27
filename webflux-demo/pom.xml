@@ -14,8 +14,8 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.0.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>2.0.2.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
@@ -37,7 +37,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.16.20</version>
+			<version>1.18.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -45,7 +45,7 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!--docker client-->
+		<!--docker client -->
 		<dependency>
 			<groupId>com.github.docker-java</groupId>
 			<artifactId>docker-java</artifactId>
@@ -61,7 +61,24 @@
 			<artifactId>jersey-hk2</artifactId>
 			<version>2.26</version>
 		</dependency>
-		<!--docker client-->
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.9.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.9.6</version>
+		</dependency>
+
+		<!--docker client -->
 
 	</dependencies>
 
